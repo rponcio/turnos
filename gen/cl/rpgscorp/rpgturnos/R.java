@@ -25,8 +25,9 @@ public final class R {
         public static final int logorsinfondo=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080001;
-        public static final int textView2=0x7f080000;
+        public static final int action_settings=0x7f080002;
+        public static final int spUsuarios=0x7f080001;
+        public static final int tvInicioSesion=0x7f080000;
     }
     public static final class layout {
         public static final int autentificacion=0x7f030000;
