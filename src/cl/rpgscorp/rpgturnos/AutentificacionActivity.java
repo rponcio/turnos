@@ -18,6 +18,7 @@ public class AutentificacionActivity extends Activity {
 		LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
 
 		// La poblamos con los ejemplos
+		objUsuarios.add(new ObjetosClase(0, "", "Seleccione Usuario"));
 		objUsuarios.add(new ObjetosClase(1, "CM", "Carlos Muñoz"));
 		objUsuarios.add(new ObjetosClase(2, "CV", "Cristian Valverde"));
 		objUsuarios.add(new ObjetosClase(3, "DI", "Damian Ibaceta"));
