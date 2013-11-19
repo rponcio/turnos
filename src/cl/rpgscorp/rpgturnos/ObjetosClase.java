@@ -2,11 +2,13 @@ package cl.rpgscorp.rpgturnos;
 
 public class ObjetosClase{
 	int id;
+	String codigo;
 	String nombre;
 	//Constructor
-	public ObjetosClase(int id, String nombre) {
+	public ObjetosClase(int id, String codigo, String nombre) {
 		super();
 		this.id = id;
+		this.codigo= codigo;
 		this.nombre = nombre;
 	}
 	
@@ -17,4 +19,8 @@ public class ObjetosClase{
 	public int getId() {
 		return id;
 	}
+	public String getCodigo() {
+		return codigo;
+	}
+	
 }

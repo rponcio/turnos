@@ -10,28 +10,87 @@
 
         <TextView
             android:id="@+id/tvInicioSesion"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_weight="1"
-            android:width="0dp" 
             android:text="@string/inicio_sesion"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:width="100dp" />
     </TableRow>
 
     <TableRow android:id="@+id/TableRow02" >
 
         <TextView
             android:id="@+id/tvSelecionUsuario"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:width="0dp" 
-            android:text="@string/seleccion_usuario"/>
+            android:text="@string/seleccion_usuario"
+            android:textSize="@dimen/Campo"
+            android:width="100dp" />
     </TableRow>
 
     <TableRow android:id="@+id/TableRow03" >
 
         <Spinner
             android:id="@+id/spUsuarios"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_weight="1"
+            android:textSize="@dimen/Campo" />
+
+    </TableRow>
+
+    <TableRow android:id="@+id/TableRow04" >
+
+        <TextView
+            android:id="@+id/tvClaveUsuario"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="@string/clave_usuario"
+            android:textSize="@dimen/Campo"
+            android:width="100dp" />
+    </TableRow>
+
+    <TableRow android:id="@+id/TableRow05" >
+
+        <EditText
+            android:id="@+id/eTclaveUsuario"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="@dimen/Campo"
+            android:width="100dp" >
+        </EditText>
+    </TableRow>
+
+    <TableRow android:id="@+id/TableRow06" >
+
+        <CheckBox
+            android:id="@+id/cBPreferencias"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_weight="1"
+            android:width="100dp" 
+            android:text="@string/check_preferencia" />
+    </TableRow>
+
+    <TableRow android:id="@+id/TableRow07" >
+
+        <Button
+            android:id="@+id/btAceptar"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/boton_aceptar"
             android:width="100dp" />
     </TableRow>
 

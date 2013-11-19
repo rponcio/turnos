@@ -4,4 +4,9 @@
     <string name="action_settings">SettingsRP</string>
     <string name="inicio_sesion">Inicio de Sesión</string>
     <string name="seleccion_usuario">Seleccione usuario</string>
+    <string name="clave_usuario">Clave de usuario</string>
+    <string name="boton_aceptar">Aceptar</string>
+    <string name="check_preferencia">No cerrar sesión</string>
+    
+    
 </resources>
