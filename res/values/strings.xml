@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Turnos Indexa</string>
     <string name="action_settings">SettingsRP</string>
     <string name="inicio_sesion">Inicio de Sesión</string>
-
+    <string name="seleccion_usuario">Seleccione usuario</string>
 </resources>

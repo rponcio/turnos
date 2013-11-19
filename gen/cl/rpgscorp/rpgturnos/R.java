@@ -25,9 +25,14 @@ public final class R {
         public static final int logorsinfondo=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080002;
-        public static final int spUsuarios=0x7f080001;
-        public static final int tvInicioSesion=0x7f080000;
+        public static final int TableLayout01=0x7f080000;
+        public static final int TableRow01=0x7f080001;
+        public static final int TableRow02=0x7f080003;
+        public static final int TableRow03=0x7f080005;
+        public static final int action_settings=0x7f080007;
+        public static final int spUsuarios=0x7f080006;
+        public static final int tvInicioSesion=0x7f080002;
+        public static final int tvSelecionUsuario=0x7f080004;
     }
     public static final class layout {
         public static final int autentificacion=0x7f030000;
@@ -40,6 +45,7 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int inicio_sesion=0x7f050002;
+        public static final int seleccion_usuario=0x7f050003;
     }
     public static final class style {
         /** 
