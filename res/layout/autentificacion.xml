@@ -26,11 +26,14 @@
     </TableRow>
 
     <TableRow android:id="@+id/TableRow03" >
-
-        <Spinner
-            android:id="@+id/spUsuarios"
-            android:layout_gravity="left"
-            android:layout_marginTop="@dimen/activity_vertical_margin" />
+            <Spinner
+                android:id="@+id/spUsuarios"
+                android:layout_gravity="left"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+                <requestFocus />
+            </Spinner>
     </TableRow>
 
     <TableRow android:id="@+id/TableRow04" >
@@ -51,15 +54,6 @@
         </EditText>
     </TableRow>
 
-    <TableRow android:id="@+id/TableRow06" >
-
-        <CheckBox
-            android:id="@+id/cBPreferencias"
-            android:layout_gravity="left"
-            android:checked="true"
-            android:text="@string/check_preferencia" />
-    </TableRow>
-
     <TableRow
         android:id="@+id/TableRow07"
         android:layout_marginTop="30dp" >
@@ -68,6 +62,18 @@
             android:id="@+id/btAceptar"
             android:layout_gravity="left"
             android:text="@string/boton_aceptar" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow08"
+        android:layout_marginTop="70dp" >
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_gravity="left"
+            android:checked="true"
+            android:text="@string/no_cerrar_sesion"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
     </TableRow>
 
 </TableLayout>

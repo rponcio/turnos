@@ -13,6 +13,12 @@ public class AutentificacionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.autentificacion);
 
+		cargarSpinnerUsuarios();
+	}
+
+	
+	public void cargarSpinnerUsuarios() {
+
 		Spinner spusuario = (Spinner) findViewById(R.id.spUsuarios);
 		// Creamos la lista
 		LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
@@ -24,12 +30,13 @@ public class AutentificacionActivity extends Activity {
 		objUsuarios.add(new ObjetosClase(3, "DI", "Damian Ibaceta"));
 		objUsuarios.add(new ObjetosClase(4, "RP", "Ramón Ponce"));
 		objUsuarios.add(new ObjetosClase(5, "ML", "Michael Lobos"));
-		
+
 		// Creamos el adaptador
 		ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(
 				this, android.R.layout.simple_spinner_item, objUsuarios);
 		// Añadimos el layout para el menú y se lo damos al spinner
-		spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner_adapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spusuario.setAdapter(spinner_adapter);
 
 	}
