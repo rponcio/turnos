@@ -7,6 +7,8 @@
     <string name="clave_usuario">Clave de usuario</string>
     <string name="boton_aceptar">Aceptar</string>
     <string name="no_cerrar_sesion">No cerrar sesión</string>
+    <string name="EstadoComunicacion">Estado de Comunicación</string>
+    
     
     
 </resources>

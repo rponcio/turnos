@@ -34,13 +34,15 @@ public final class R {
         public static final int TableRow05=0x7f090009;
         public static final int TableRow07=0x7f09000b;
         public static final int TableRow08=0x7f09000d;
-        public static final int action_settings=0x7f090010;
+        public static final int TableRow09=0x7f09000f;
+        public static final int action_settings=0x7f090012;
         public static final int btAceptar=0x7f09000c;
         public static final int eTclaveUsuario=0x7f09000a;
         public static final int spUsuarios=0x7f090006;
         public static final int switch1=0x7f09000e;
-        public static final int textView1=0x7f09000f;
+        public static final int textView1=0x7f090011;
         public static final int tvClaveUsuario=0x7f090008;
+        public static final int tvEstadoComunicacion=0x7f090010;
         public static final int tvInicioSesion=0x7f090002;
         public static final int tvSelecionUsuario=0x7f090004;
     }
@@ -55,6 +57,7 @@ public final class R {
         public static final int main=0x7f080000;
     }
     public static final class string {
+        public static final int EstadoComunicacion=0x7f060007;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
         public static final int boton_aceptar=0x7f060005;
