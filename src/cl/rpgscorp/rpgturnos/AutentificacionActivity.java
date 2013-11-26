@@ -31,7 +31,7 @@ public class AutentificacionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.autentificacion);
 
-		// cargarSpinnerUsuarios();
+		//cargarSpinnerUsuariosManual();
 
 		// WebServer Request URL
 		String serverURL = "http://rpg.comxa.com/rpg/jsonUsuarios.html";
@@ -59,7 +59,7 @@ public class AutentificacionActivity extends Activity {
 
 		// Creamos el adaptador
 		ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(this, android.R.layout.simple_spinner_item, objUsuarios);
-		// Añadimos el layout para el menú y se lo damos al spinner
+		// Añadimos el layout para el menú y se lo damos al spinner 
 		spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spusuario.setAdapter(spinner_adapter);
 
@@ -210,7 +210,7 @@ public class AutentificacionActivity extends Activity {
 								.toString();
 
 						
-			/*			
+				
 						Spinner spusuario = (Spinner) findViewById(R.id.spUsuarios);
 						// Creamos la lista
 						LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
@@ -224,12 +224,10 @@ public class AutentificacionActivity extends Activity {
 						objUsuarios.add(new ObjetosClase(5, "ML", "Michael Lobos"));
 
 						// Creamos el adaptador
-						ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(this, android.R.layout.simple_spinner_item, objUsuarios);
+						ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(AutentificacionActivity.this, android.R.layout.simple_spinner_item, objUsuarios);
 						// Añadimos el layout para el menú y se lo damos al spinner
 						spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 						spusuario.setAdapter(spinner_adapter);
-						*/
-						
 						
 						
 						
