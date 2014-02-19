@@ -19,13 +19,21 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class AutentificacionActivity extends Activity {
 
+	private Button botonAceptar;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,47 +42,40 @@ public class AutentificacionActivity extends Activity {
 		//cargarSpinnerUsuariosManual();
 
 		// WebServer Request URL
-		String serverURL = "http://rpg.comxa.com/rpg/jsonUsuarios.html";
-		// String serverURL = "http://rpg.comxa.com/rpg/json.html";
-		// String serverURL = "http://rpg.comxa.com/rpg/turno.html";
+		String serverURL = "http://rpg.comxa.com/rpg/SoporteRPG.php?t=u";
 
 		// Utilice AsyncTask ejecutar método para prevenir ANR Problema
 		new cargarSpinnerUsuarios().execute(serverURL);
 
+		botonAceptar = (Button) findViewById(R.id.btAceptar);
+		botonAceptar.setOnClickListener(new OnClickListener() {
+			public void onClick(View view) {
+				ValidarUsuario(null);
+			}
+		});
+		
+		
 	}
 
-	public void cargarSpinnerUsuariosManual() {
-
+	public void ValidarUsuario(View view) {
+		EditText clave = (EditText) findViewById(R.id.eTclaveUsuario);
+		String stringClave = clave.getText().toString();
+		
 		Spinner spusuario = (Spinner) findViewById(R.id.spUsuarios);
-		// Creamos la lista
-		LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
-
-		// La poblamos con los ejemplos
-		objUsuarios.add(new ObjetosClase(0, "", "Seleccione Usuario"));
-		objUsuarios.add(new ObjetosClase(1, "CM", "Carlos Muñoz"));
-		objUsuarios.add(new ObjetosClase(2, "CV", "Cristian Valverde"));
-		objUsuarios.add(new ObjetosClase(3, "DI", "Damian Ibaceta"));
-		objUsuarios.add(new ObjetosClase(4, "RP", "Ramón Ponce"));
-		objUsuarios.add(new ObjetosClase(5, "ML", "Michael Lobos"));
-
-		// Creamos el adaptador
-		ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(this, android.R.layout.simple_spinner_item, objUsuarios);
-		// Añadimos el layout para el menú y se lo damos al spinner 
-		spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spusuario.setAdapter(spinner_adapter);
-
+		
+		//Toast.makeText(this, stringClave, Toast.LENGTH_SHORT).show();
+		
 	}
-
+	
+	
 	// Clase con clase extends AsyncTask
 	private class cargarSpinnerUsuarios extends AsyncTask<String, Void, Void> {
 
 		// inicialización requerida
-
 		private final HttpClient Client = new DefaultHttpClient();
 		private String Content;
 		private String Error = null;
-		private ProgressDialog Dialog = new ProgressDialog(
-				AutentificacionActivity.this);
+		private ProgressDialog Dialog = new ProgressDialog(AutentificacionActivity.this);
 		String data = "";
 
 		TextView tvEstadoComunicacion = (TextView) findViewById(R.id.tvEstadoComunicacion);
@@ -162,6 +163,8 @@ public class AutentificacionActivity extends Activity {
 			// Cerrar diálogo de progreso
 			Dialog.dismiss();
 
+			LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
+			objUsuarios.add(new ObjetosClase(0, "", "Seleccione Usuario",""));			
 			if (Error != null) {
 
 				tvEstadoComunicacion.setText("Output : " + Error);
@@ -169,7 +172,7 @@ public class AutentificacionActivity extends Activity {
 			} else {
 
 				// Mostrar respuesta JSON en pantalla (actividad)
-				tvEstadoComunicacion.setText(Content);
+				//tvEstadoComunicacion.setText(Content);
 
 				/****************** Iniciar analizar la respuesta JSON datos *************/
 
@@ -202,36 +205,24 @@ public class AutentificacionActivity extends Activity {
 								.getJSONObject(i);
 
 						/******* Recuperar valores de nodo **********/
-						String login = jsonChildNode.optString("login")
-								.toString();
-						String nombre = jsonChildNode.optString("nombre")
-								.toString();
-						String clave = jsonChildNode.optString("clave")
-								.toString();
-
+						String login = jsonChildNode.optString("login").toString();
+						String nombre = jsonChildNode.optString("nombre").toString();
+						String clave = jsonChildNode.optString("clave").toString();
 						
+						objUsuarios.add(new ObjetosClase(i, login, nombre, clave));
 				
-						Spinner spusuario = (Spinner) findViewById(R.id.spUsuarios);
 						// Creamos la lista
-						LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
+						//LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
 
 						// La poblamos con los ejemplos
-						objUsuarios.add(new ObjetosClase(0, "", "Seleccione Usuario"));
-						objUsuarios.add(new ObjetosClase(1, "CM", "Carlos Muñoz"));
-						objUsuarios.add(new ObjetosClase(2, "CV", "Cristian Valverde"));
-						objUsuarios.add(new ObjetosClase(3, "DI", "Damian Ibaceta"));
-						objUsuarios.add(new ObjetosClase(4, "RP", "Ramón Ponce"));
-						objUsuarios.add(new ObjetosClase(5, "ML", "Michael Lobos"));
+						//objUsuarios.add(new ObjetosClase(0, "", "Seleccione Usuario"));
+						//objUsuarios.add(new ObjetosClase(1, "CM", "Carlos Muñoz"));
+						//objUsuarios.add(new ObjetosClase(2, "CV", "Cristian Valverde"));
+						//objUsuarios.add(new ObjetosClase(3, "DI", "Damian Ibaceta"));
+						//objUsuarios.add(new ObjetosClase(4, "RP", "Ramón Ponce"));
+						//objUsuarios.add(new ObjetosClase(5, "ML", "Michael Lobos"));
 
-						// Creamos el adaptador
-						ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(AutentificacionActivity.this, android.R.layout.simple_spinner_item, objUsuarios);
-						// Añadimos el layout para el menú y se lo damos al spinner
-						spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-						spusuario.setAdapter(spinner_adapter);
-						
-						
-						
-						
+						/*
 						OutputData += " login 		    : "
 								+ login
 								+ " \n "
@@ -242,13 +233,20 @@ public class AutentificacionActivity extends Activity {
 								+ clave
 								+ " \n "
 								+ "--------------------------------------------------\n";
-
+						 */
 						// Log.i("JSON parse", song_name);
 					}
 					/****************** Fin analizar la respuesta JSON Data *************/
 
+					// Creamos el adaptador
+					ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(AutentificacionActivity.this, android.R.layout.simple_spinner_item, objUsuarios);
+					// Añadimos el layout para el menú y se lo damos al spinner
+					spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+					Spinner spusuario = (Spinner) findViewById(R.id.spUsuarios);
+					spusuario.setAdapter(spinner_adapter);
+					
 					// Mostrar salida analizada en la pantalla (actividad)
-					tvEstadoComunicacion.setText(OutputData);
+					//tvEstadoComunicacion.setText(OutputData);
 
 				} catch (JSONException e) {
 
@@ -260,4 +258,27 @@ public class AutentificacionActivity extends Activity {
 
 	}
 
+	public void cargarSpinnerUsuariosManual() {
+
+		Spinner spusuario = (Spinner) findViewById(R.id.spUsuarios);
+		// Creamos la lista
+		LinkedList<ObjetosClase> objUsuarios = new LinkedList<ObjetosClase>();
+
+		// La poblamos con los ejemplos
+		objUsuarios.add(new ObjetosClase(0, "", "Seleccione Usuario",""));
+		objUsuarios.add(new ObjetosClase(1, "CM", "Carlos Muñoz",""));
+		objUsuarios.add(new ObjetosClase(2, "CV", "Cristian Valverde",""));
+		objUsuarios.add(new ObjetosClase(3, "DI", "Damian Ibaceta",""));
+		objUsuarios.add(new ObjetosClase(4, "RP", "Ramón Ponce",""));
+		objUsuarios.add(new ObjetosClase(5, "ML", "Michael Lobos",""));
+
+		// Creamos el adaptador
+		ArrayAdapter<ObjetosClase> spinner_adapter = new ArrayAdapter<ObjetosClase>(this, android.R.layout.simple_spinner_item, objUsuarios);
+		// Añadimos el layout para el menú y se lo damos al spinner 
+		spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spusuario.setAdapter(spinner_adapter);
+
+	}
 }
+
+
